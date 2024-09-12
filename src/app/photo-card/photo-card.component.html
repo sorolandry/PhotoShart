@@ -1,0 +1,13 @@
+<div class="photo-card">
+    <h2>{{photocard.title}}</h2>
+    <img [src]="photocard.imageUrl" alt="title">
+    <p>{{photocard.description}}</p>
+    <p>La photo est créée le {{photocard.created_at}}</p>
+    <p>
+        <button (click)="onLike()">{{textLikeButton}}</button>
+        👍{{photocard.like}}
+    </p>
+    
+</div>
+
+
