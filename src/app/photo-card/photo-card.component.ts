@@ -1,11 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PhotoCard } from '../models/photo-card';
+import { NgStyle } from '@angular/common';
 
 
 @Component({
   selector: 'app-photo-card',
   standalone: true,
-  imports: [],
+  imports: [
+    NgStyle
+  ],
   templateUrl: './photo-card.component.html',
   styleUrl: './photo-card.component.scss'
 })
@@ -15,7 +18,7 @@ export class PhotoCardComponent implements OnInit {
   // created_at!: Date;
   // like!: number;
   // imageUrl!:string;
-  @Input() photocart!:PhotoCard;
+  @Input() photocard!:PhotoCard;
   textLikeButton!:string;
   isLiked!:boolean;
 
@@ -27,17 +30,17 @@ export class PhotoCardComponent implements OnInit {
     // this.like=0;
     // this.imageUrl = "https://img.lovepik.com/bg/20231220/Background-stock-photo-of-adorable-tiny-kitten-playing-with-a_2654441_wh860.jpg!/fw/860";
     this.textLikeButton = 'Like';
-    this.isLiked = true;
+    this.isLiked = false;
   }
 
   onLike():void{
     if(this.isLiked){
-      this.photocart.like--;
+      this.photocard.like--;
       this.isLiked=false;
       this.textLikeButton = "UNLIKE";
     }
     else{
-      this.photocart.like++;
+      this.photocard.like++;
       this.isLiked = true;
       this.textLikeButton = "LIKE";
     }

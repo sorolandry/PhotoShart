@@ -1,1 +1,8 @@
-<app-photo-card [photocard]="myPhotoCard"></app-photo-card>
+@for (photocard of photocards; track photocard.title){
+    <app-photo-card [photocard]="photocard"></app-photo-card>
+
+}
+
+
+
+

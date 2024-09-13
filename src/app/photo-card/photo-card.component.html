@@ -1,11 +1,21 @@
-<div class="photo-card">
+<div class="photo-card" [ngClass]="{'liked': isLiked}">
     <h2>{{photocard.title}}</h2>
+    @if(photocard.location){
+        <p>La photo à été prise à {{photocard.location}}</p>
+    }
+    @else{
+        <p>Localisation indéfinie</p>
+    }
     <img [src]="photocard.imageUrl" alt="title">
     <p>{{photocard.description}}</p>
     <p>La photo est créée le {{photocard.created_at}}</p>
+
     <p>
         <button (click)="onLike()">{{textLikeButton}}</button>
-        👍{{photocard.like}}
+        <span [ngStyle]="{color: 'rgb(0, '+ photocard.like +' ,0)'}">
+            👍{{photocard.like}}
+
+        </span>
     </p>
     
 </div>
